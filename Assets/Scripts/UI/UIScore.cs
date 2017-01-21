@@ -11,8 +11,14 @@ public class UIScore : MonoBehaviour
 
 	void Update()
 	{
+		var wave = LevelManager.Instance.Wave;
 		float ratio = LevelManager.Instance.LightSpeedRatio;
-		Text.text = string.Format("{0}% Light Speed", ratio * 100f);
+		Text.text = string.Format("Light Speed: {0}%\nWave: {1}\nFrequency: {2}\nAmplitude: {3}\nOffset: {4}",
+			ratio * 100f,
+			wave.Shape,
+			wave.Frequency,
+			wave.Amplitude,
+			wave.Offset);
 
 		float danger = Mathf.Pow(ratio, 8f);
 		float random = UnityEngine.Random.Range(-danger, danger);
