@@ -17,7 +17,6 @@ public class Wave : MonoBehaviour
 	public float Amplitude = 1f;
 	public float Center;
 	public float Offset;
-	public float Speed = 5f;
 
 	[Header("Render Settings")]
 	public int Definition = 1000;
@@ -27,7 +26,7 @@ public class Wave : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		offset = offset + Speed * Time.deltaTime;
+		offset = offset + DifficultyManager.Instance.Speed * Time.deltaTime;
 		offset %= Mathf.PI * 2f;
 		var positions = new Vector3[Definition];
 
@@ -48,6 +47,7 @@ public class Wave : MonoBehaviour
 		{
 			case Shape.Sine:
 				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + Center;
+				break;
 			default:
 				return time;
 		}

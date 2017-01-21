@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
 
-	public float Difficulty = 1f;
+	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
 
 	void Awake()
 	{

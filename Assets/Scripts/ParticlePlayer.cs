@@ -20,7 +20,7 @@ public class ParticlePlayer : MonoBehaviour
 	{
 		var motion = new Vector2(input * MoveSpeed, 0f) * deltaTime;
 		var position = Camera.main.WorldToViewportPoint(Body.position + motion);
-		position.x = Mathf.Clamp01(position.x);
+		position.x = Mathf.Clamp(position.x, LevelManager.Instance.PlayerBounds.x, LevelManager.Instance.PlayerBounds.y);
 		position.y = Wave.Solve(position.x);
 		position.z = -Camera.main.transform.position.z;
 		Body.MovePosition(Camera.main.ViewportToWorldPoint(position));
