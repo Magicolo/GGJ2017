@@ -16,7 +16,7 @@ public class WavePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")), Time.fixedDeltaTime);
+		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")).normalized, Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
