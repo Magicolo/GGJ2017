@@ -69,9 +69,8 @@ public class ChunkManager : MonoBehaviour
 			newGo.transform.Translate(offset);
 		}
 
-		var mover = newGo.AddComponent<ChunkMover>();
-		mover.SpeedModifier = SpeedModifier * Random.Range(nextChunk.minSpeed, nextChunk.maxSpeed);
-		mover.ySpeed = nextChunk.ySpeed;
+		newGo.AddComponent<ChunkMover>();
+
 
 		newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();

@@ -5,9 +5,6 @@ using UnityEngine;
 public class ChunkMover : MonoBehaviour
 {
 	public Chunk chunk;
-	public float SpeedModifier;
-
-	public float ySpeed;
 
 	void Start()
 	{
@@ -17,9 +14,9 @@ public class ChunkMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var x = -LevelManager.Instance.Speed * SpeedModifier * Time.deltaTime;
-		var y = Mathf.Sin(Time.time) * ySpeed;
+		var x = -LevelManager.Instance.Speed * ChunkManager.instance.SpeedModifier * Time.deltaTime;
+		var y = Mathf.Sin(Time.time) * chunk.ySpeed;
 		transform.Translate(x, 0, 0);
-		transform.position.Set(transform.position.x, y, 0);
+		transform.position = new Vector3(transform.position.x, y);
 	}
 }

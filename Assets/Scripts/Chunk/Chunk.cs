@@ -10,9 +10,6 @@ public class Chunk : MonoBehaviour
 	public int Width;
 	public Color GizmosColor = Color.red;
 
-	public float minSpeed = 1;
-	public float maxSpeed = 1;
-
 	public float ySpeed = 0;
 
 
