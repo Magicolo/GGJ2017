@@ -16,7 +16,6 @@ public class Wave : MonoBehaviour
 	public Shape Shape;
 	public float Frequency = 1f;
 	public float Amplitude = 1f;
-	public float Center;
 	public float Offset;
 
 	[Header("Render Settings")]
@@ -48,9 +47,9 @@ public class Wave : MonoBehaviour
 		switch (Shape)
 		{
 			case Shape.Sine:
-				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + Center;
+				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + LevelManager.Instance.Bounds.center.y;
 			case Shape.Square:
-				return Mathf.Clamp(Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * 10f, -1f, 1f) * Amplitude + Center;
+				return Mathf.Clamp(Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * 10f, -1f, 1f) * Amplitude + LevelManager.Instance.Bounds.center.y;
 			default:
 				return time;
 		}

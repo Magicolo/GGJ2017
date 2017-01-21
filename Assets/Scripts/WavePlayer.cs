@@ -16,7 +16,7 @@ public class WavePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")), Time.fixedDeltaTime);
+		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")).normalized, Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
@@ -24,11 +24,12 @@ public class WavePlayer : MonoBehaviour
 		var wave = LevelManager.Instance.Wave;
 		float frequency = Mathf.Clamp(wave.Frequency - input.x * FrequencySpeed * deltaTime, 1f, 5f);
 		var position = LevelManager.Instance.MainCamera.WorldToViewportPoint(transform.position);
+		var bounds = LevelManager.Instance.Bounds;
 
 		float offset = wave.Frequency * position.x * Mathf.PI * 2f + wave.Offset - frequency * position.x * Mathf.PI * 2f;
 		wave.Offset = offset;
 		wave.Frequency = frequency;
-		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, 0.3f);
+		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, bounds.height / 2f);
 	}
 
 	void OnLost()
