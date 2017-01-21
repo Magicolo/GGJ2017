@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
 	public float Speed = 0.5f;
 	public float Increment = 0.01f;
 
+	public bool HasLost { get; private set; }
+
 	public float LightSpeedRatio
 	{
 		get { return 1f - 1f / Mathf.Pow(Speed * 4f, Speed / 4f); }
@@ -25,6 +27,8 @@ public class LevelManager : MonoBehaviour
 
 	public void Lose()
 	{
+		HasLost = true;
+
 		if (OnLost != null)
 			OnLost();
 	}
@@ -41,6 +45,9 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
+		if (HasLost)
+			return;
+
 		Speed += Increment * Time.deltaTime;
 
 		if (LightSpeedRatio >= 1f)
