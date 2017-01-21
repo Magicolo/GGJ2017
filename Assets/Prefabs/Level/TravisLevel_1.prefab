@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1902469580231228}
+  m_IsPrefabParent: 1
+--- !u!1 &1902469580231228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4405917461202398}
+  - component: {fileID: 114735928960861270}
+  m_Layer: 0
+  m_Name: TravisLevel_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4405917461202398
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902469580231228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.4533234, y: 6.009306, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114735928960861270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902469580231228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c994e43fea3feaf4eb29c00c61eb3e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level:
+  - chunk: {fileID: 114866931391162212, guid: 2824209e24651644d86188bd24368ebe, type: 2}
+    weight: 5
+  - chunk: {fileID: 114631154846479250, guid: b60bcd1ae7c9a824f8b8891acfab71f4, type: 2}
+    weight: 4
+  - chunk: {fileID: 114368207003192058, guid: eeab0a1e7b0ef7b43b476413659915e8, type: 2}
+    weight: 4
+  - chunk: {fileID: 114761508581149498, guid: a4ccc0518192a1946a938b965b4e214c, type: 2}
+    weight: 3
+  - chunk: {fileID: 114986513391775418, guid: 1cac28e91544810458e1d91e48d13ff2, type: 2}
+    weight: 2
+  - chunk: {fileID: 114087681293220236, guid: 56d3ac323df44294d9f178ed27f8f8b7, type: 2}
+    weight: 3
+  - chunk: {fileID: 114259792926293868, guid: b6ea445e99e4c984c96d4c6676fa7059, type: 2}
+    weight: 2
+  - chunk: {fileID: 114626600922036432, guid: e115bff6c13277e479710d42d659611c, type: 2}
+    weight: 2
+  - chunk: {fileID: 114552606400157168, guid: 40d9cafe67653674488d445d0ba71be2, type: 2}
+    weight: 1
+  - chunk: {fileID: 114201600956054282, guid: d18101713e4309a438ad6a487e316fa8, type: 2}
+    weight: 1
