@@ -8,8 +8,15 @@ public class DifficultyManager : MonoBehaviour
 
 	public float Speed = 0.5f;
 
+	public float IncrementPerSecond = 0.01f;
+
 	private void Awake()
 	{
 		Instance = this;
+	}
+
+	private void Update()
+	{
+		Speed += IncrementPerSecond;
 	}
 }
