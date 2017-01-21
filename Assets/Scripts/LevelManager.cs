@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
 
 	public float Speed = 0.5f;
+	public float Increment = 0.01f;
 
 	public float LightSpeedRatio
 	{
@@ -40,6 +41,8 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
+		Speed += Increment * Time.deltaTime;
+
 		if (LightSpeedRatio >= 1f)
 			SceneManager.LoadScene("Crash");
 	}
