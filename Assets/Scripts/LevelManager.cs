@@ -12,15 +12,16 @@ public class LevelManager : MonoBehaviour
 	public event Action OnLost;
 
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
-	public float Speed = 0.5f;
+	//public float Speed = 0.5f;
 	public float Increment = 0.01f;
 
 	public Camera MainCamera;
 	public Camera UICamera;
 	public Wave Wave;
 
+	public float Speed { get { return ElapsedTime / 30f + 1f; } }
 	public bool HasLost { get; private set; }
-
+	public float ElapsedTime { get; private set; }
 	public float LightSpeedRatio
 	{
 		get { return 1f - 1f / Mathf.Pow(Speed * 4f, Speed / 4f); }
@@ -53,10 +54,17 @@ public class LevelManager : MonoBehaviour
 		}
 		else if (HasLost)
 			return;
-
-		Speed += Increment * Time.deltaTime;
-
-		if (LightSpeedRatio >= 1f)
+		else if (LightSpeedRatio >= 1f)
+		{
 			SceneManager.LoadScene("Crash");
+			return;
+		}
+
+		ElapsedTime += Time.deltaTime;
+	}
+
+	void UpdateBackground()
+	{
+
 	}
 }
