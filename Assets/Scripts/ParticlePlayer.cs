@@ -26,9 +26,6 @@ public class ParticlePlayer : MonoBehaviour
 		position.y = wave.Solve(position.x);
 		position.z = -LevelManager.Instance.MainCamera.transform.position.z;
 		Body.MovePosition(LevelManager.Instance.MainCamera.ViewportToWorldPoint(position));
-
-		//wave.Offset = wave.Offset + input.y * OffsetSpeed * deltaTime;
-		//wave.Offset %= Mathf.PI * 2f;
 	}
 
 	void OnTriggerEnter2D()

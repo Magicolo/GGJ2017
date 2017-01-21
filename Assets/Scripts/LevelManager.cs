@@ -12,19 +12,18 @@ public class LevelManager : MonoBehaviour
 	public event Action OnLost;
 
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
-	//public float Speed = 0.5f;
-	public float Increment = 0.01f;
+	public float Speed = 1f;
 
 	public Camera MainCamera;
 	public Camera UICamera;
 	public Wave Wave;
 
-	public float Speed { get { return ElapsedTime / 60f + 1f; } }
+	public float Difficulty { get { return ElapsedTime / 60f + 1f; } }
 	public bool HasLost { get; private set; }
 	public float ElapsedTime { get; private set; }
 	public float LightSpeedRatio
 	{
-		get { return 1f - 1f / Mathf.Pow(Speed * 4f, Speed / 4f); }
+		get { return 1f - 1f / Mathf.Pow(Difficulty * 4f, Difficulty / 4f); }
 	}
 
 	public void Lose()
@@ -60,12 +59,12 @@ public class LevelManager : MonoBehaviour
 			return;
 		}
 
-		ElapsedTime += Time.deltaTime;
+		ElapsedTime += Time.deltaTime * Speed;
 		UpdateBackground();
 	}
 
 	void UpdateBackground()
 	{
-		MainCamera.backgroundColor = MainCamera.backgroundColor.HueShift(Time.deltaTime * Speed * 0.025f);
+		MainCamera.backgroundColor = MainCamera.backgroundColor.HueShift(Time.deltaTime * Difficulty * 0.025f);
 	}
 }
