@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftLimit : MonoBehaviour {
+public class LeftLimit : MonoBehaviour
+{
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Start()
+	{
+
 	}
 
-	void 
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		var chunk = collision.gameObject.GetComponent<Chunk>();
+		if (chunk == null) return;
+
+		Destroy(collision.gameObject);
+	}
 }

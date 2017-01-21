@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightLimit : MonoBehaviour {
+public class RightLimit : MonoBehaviour
+{
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start()
+	{
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
+
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		ChunkManager.instance.NextChunk();
 	}
 }
