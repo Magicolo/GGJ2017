@@ -6,7 +6,7 @@ public class ChunkManager : MonoBehaviour
 {
 	public static ChunkManager instance;
 
-	Chunk[] chunks;
+	ChunkLevel level;
 	Chunk CurrentChunk;
 
 	public int FirstChunkStartDistance;
@@ -21,7 +21,7 @@ public class ChunkManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		chunks = Resources.LoadAll<Chunk>("Chunks");
+		level = Object.FindObjectOfType<ChunkLevel>();
 		NextChunk();
 	}
 
@@ -31,9 +31,29 @@ public class ChunkManager : MonoBehaviour
 
 	}
 
+	Chunk GetNextChunk()
+	{
+		float totalWeight = 0;
+		foreach (var c in level.Level)
+		{
+			totalWeight += c.weight;
+		}
+
+		float neededWeight = Random.Range(0, totalWeight);
+		float weightcumul = 0;
+		foreach (var c in level.Level)
+		{
+			weightcumul += c.weight;
+			if (weightcumul >= neededWeight)
+				return c.chunk;
+		}
+
+		return null;
+	}
+
 	public void NextChunk()
 	{
-		var nextChunk = chunks[Random.Range(0, chunks.Length)];
+		var nextChunk = GetNextChunk();
 
 		var newGo = Object.Instantiate(nextChunk).gameObject;
 		newGo.transform.position = new Vector3(0, -50, 0);
