@@ -4,25 +4,12 @@ using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
+	public static DifficultyManager Instance { get; private set; }
 
-	public static DifficultyManager instance;
-
-	public float speed = 0.5f;
+	public float Speed = 0.5f;
 
 	private void Awake()
 	{
-		instance = this;
-	}
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
+		Instance = this;
 	}
 }

@@ -12,7 +12,7 @@ public class ChunkMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var xSpeed = -DifficultyManager.instance.speed;
+		var xSpeed = -DifficultyManager.Instance.Speed;
 		transform.Translate(xSpeed, 0, 0);		
 
 

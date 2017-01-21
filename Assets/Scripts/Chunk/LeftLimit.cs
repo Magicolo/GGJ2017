@@ -13,6 +13,4 @@ public class LeftLimit : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	void 
 }

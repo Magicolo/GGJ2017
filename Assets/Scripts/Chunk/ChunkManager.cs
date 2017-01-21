@@ -40,7 +40,7 @@ public class ChunkManager : MonoBehaviour
 
 		newGo.AddComponent<ChunkMover>();
 
-		var body = newGo.AddComponent<Rigidbody2D>();
+		//var body = newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();
 		box.offset = new Vector2(nextChunk.Width / 2, 50);
 		box.size = new Vector2(nextChunk.Width, 100);
