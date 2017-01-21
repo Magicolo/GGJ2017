@@ -14,14 +14,14 @@ public class UIScore : MonoBehaviour
 		var wave = LevelManager.Instance.Wave;
 		float ratio = LevelManager.Instance.LightSpeedRatio;
 		string format = "";
-		if (ratio < 0.5)
-			format = "0";
-		else if (ratio < 0.7)
-			format = "00";
-		else if (ratio < 0.9)
-			format = "000";
-		else if (ratio < 0.95)
+		if (ratio > 0.95)
 			format = "0000";
+		else if (ratio > 0.9)
+			format = "000";
+		else if (ratio > 0.7)
+			format = "00";
+		else if (ratio > 0.5)
+			format = "0";
 
 		Text.text = string.Format("Light Speed: {0:0." + format + "}%\nWave: {1}\nFrequency: {2}\nAmplitude: {3}",
 			ratio * 100f,
