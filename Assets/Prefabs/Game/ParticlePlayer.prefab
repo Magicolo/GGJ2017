@@ -178,8 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c0f288e6ad4f14bbc4c400eefa0166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 50
-  OffsetSpeed: 3
+  MoveSpeed: 75
   Renderer: {fileID: 212771680380400336}
   Body: {fileID: 50958164239522776}
   DeathParticles: {fileID: 198353767897048712}

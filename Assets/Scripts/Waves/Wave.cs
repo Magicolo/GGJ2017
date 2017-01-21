@@ -27,7 +27,7 @@ public class Wave : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		offset += LevelManager.Instance.Speed * Time.deltaTime;
+		offset += LevelManager.Instance.Difficulty * Time.deltaTime;
 		offset %= Mathf.PI * 2f;
 
 		var positions = new Vector3[Definition];
