@@ -22,10 +22,11 @@ public class WavePlayer : MonoBehaviour
 	void UpdateInput(Vector2 input, float deltaTime)
 	{
 		var wave = LevelManager.Instance.Wave;
-		var frequency = Mathf.Clamp(wave.Frequency - input.x * FrequencySpeed * deltaTime, 1f, 5f);
+		float frequency = Mathf.Clamp(wave.Frequency - input.x * FrequencySpeed * deltaTime, 1f, 5f);
 		var position = LevelManager.Instance.MainCamera.WorldToViewportPoint(transform.position);
 
-		wave.Offset += (1f - frequency / wave.Frequency) * position.x * Mathf.PI * 2f;
+		float offset = wave.Frequency * position.x * Mathf.PI * 2f + wave.Offset - frequency * position.x * Mathf.PI * 2f;
+		wave.Offset = offset;
 		wave.Frequency = frequency;
 		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, 0.45f);
 	}
