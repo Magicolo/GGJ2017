@@ -6,24 +6,28 @@ using UnityEngine;
 
 public class ParticlePlayer : MonoBehaviour
 {
-	public float Speed = 5f;
+	public float MoveSpeed = 10f;
 	public Wave Wave;
 	public Rigidbody2D Body;
+	public ParticleSystem DeathParticles;
 
 	void FixedUpdate()
 	{
-		UpdateMotion(Input.GetAxis("Horizontal"), Time.fixedDeltaTime);
+		UpdateInput(Input.GetAxis("Horizontal1"), Time.fixedDeltaTime);
 	}
 
-	void UpdateMotion(float input, float deltaTime)
+	void UpdateInput(float input, float deltaTime)
 	{
-		var motion = new Vector2(input * Speed, 0f) * deltaTime;
+		var motion = new Vector2(input * MoveSpeed, 0f) * deltaTime;
 		var position = Camera.main.WorldToViewportPoint(Body.position + motion);
 		position.x = Mathf.Clamp01(position.x);
 		position.y = Wave.Solve(position.x);
 		position.z = -Camera.main.transform.position.z;
 		Body.MovePosition(Camera.main.ViewportToWorldPoint(position));
+	}
 
-		Debug.Log(motion + " | " + position + " | " + Body.position);
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		DeathParticles.Play();
 	}
 }
