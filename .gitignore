@@ -26,5 +26,7 @@ Library/
 **/Pseudo/Examples/*.pdb.meta
 **/Pseudo/Examples/*.mdb.meta
 
-*.csproj.user
-*.suo
+.csproj
+.csproj.user
+.suo
+.sln
