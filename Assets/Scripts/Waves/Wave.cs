@@ -17,7 +17,6 @@ public class Wave : MonoBehaviour
 	public float Amplitude = 1f;
 	public float Center;
 	public float Offset;
-	public float Speed = 5f;
 
 	[Header("Render Settings")]
 	public int Definition = 1000;
@@ -27,15 +26,15 @@ public class Wave : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		offset = offset + Speed * Time.deltaTime;
+		offset = offset + LevelManager.Instance.Speed * Time.deltaTime;
 		offset %= Mathf.PI * 2f;
 		var positions = new Vector3[Definition];
 
 		for (int i = 0; i < positions.Length; i++)
 		{
 			float ratio = (float)i / Definition;
-			var position = new Vector3(ratio, Solve(ratio), -Camera.main.transform.position.z);
-			positions[i] = Camera.main.ViewportToWorldPoint(position);
+			var position = new Vector3(ratio, Solve(ratio), -LevelManager.Instance.MainCamera.transform.position.z);
+			positions[i] = LevelManager.Instance.MainCamera.ViewportToWorldPoint(position);
 		}
 
 		Line.numPositions = Definition;

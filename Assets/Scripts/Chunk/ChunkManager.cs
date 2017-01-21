@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
+	public static ChunkManager instance;
 
 	Chunk[] chunks;
 	Chunk CurrentChunk;
 
 	public int FirstChunkStartDistance;
 	public int DistanceBetweenChunks = 20;
+
+
+	private void Awake()
+	{
+		instance = this;
+	}
 
 	// Use this for initialization
 	void Start()
@@ -24,28 +31,29 @@ public class ChunkManager : MonoBehaviour
 
 	}
 
-	void NextChunk()
+	public void NextChunk()
 	{
-		var nextChunk = chunks[Random.Range(0, chunks.Length - 1)];
+		var nextChunk = chunks[Random.Range(0, chunks.Length)];
 
 		var newGo = Object.Instantiate(nextChunk).gameObject;
-		newGo.transform.position = Vector3.zero;
+		newGo.transform.position = new Vector3(0, -50, 0);
 		if (CurrentChunk == null)
-			newGo.transform.Translate(FirstChunkStartDistance, -50, 0);
+			newGo.transform.Translate(FirstChunkStartDistance, 0, 0);
 		else
 		{
-			var offset = new Vector3(DistanceBetweenChunks + CurrentChunk.Width, 0, 0);
-			newGo.transform.Translate(CurrentChunk.transform.position + offset);
+			var xOffset = CurrentChunk.transform.position.x + DistanceBetweenChunks + CurrentChunk.Width;
+			var offset = new Vector3(xOffset, 0, 0);
+			newGo.transform.Translate(offset);
 		}
 
 		newGo.AddComponent<ChunkMover>();
 
-		//var body = newGo.AddComponent<Rigidbody2D>();
+		newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();
 		box.offset = new Vector2(nextChunk.Width / 2, 50);
 		box.size = new Vector2(nextChunk.Width, 100);
 		newGo.layer = LayerMask.NameToLayer("Chunk");
 
-		CurrentChunk = nextChunk;
+		CurrentChunk = newGo.GetComponent<Chunk>();
 	}
 }
