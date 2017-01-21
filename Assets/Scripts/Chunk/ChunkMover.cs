@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChunkMover : MonoBehaviour
 {
 	public Chunk chunk;
+	public float SpeedModifier;
 
 	void Start()
 	{

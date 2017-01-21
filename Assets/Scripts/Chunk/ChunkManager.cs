@@ -12,6 +12,7 @@ public class ChunkManager : MonoBehaviour
 	public int FirstChunkStartDistance;
 	public int DistanceBetweenChunks = 20;
 
+	public float SpeedModifier = 1;
 
 	void Awake()
 	{
@@ -68,7 +69,8 @@ public class ChunkManager : MonoBehaviour
 			newGo.transform.Translate(offset);
 		}
 
-		newGo.AddComponent<ChunkMover>();
+		var mover = newGo.AddComponent<ChunkMover>();
+		mover.SpeedModifier = SpeedModifier * Random.Range(nextChunk.minSpeed, nextChunk.maxSpeed);
 
 		newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();
