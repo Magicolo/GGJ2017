@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
 
+	public Camera MainCamera;
+	public Camera UICamera;
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
 	public float Speed = 0.5f;
 

@@ -20,11 +20,11 @@ public class ParticlePlayer : MonoBehaviour
 	void UpdateInput(Vector2 input, float deltaTime)
 	{
 		var motion = new Vector2(input.x * MoveSpeed, 0f) * deltaTime;
-		var position = Camera.main.WorldToViewportPoint(Body.position + motion);
+		var position = LevelManager.Instance.MainCamera.WorldToViewportPoint(Body.position + motion);
 		position.x = Mathf.Clamp(position.x, LevelManager.Instance.PlayerBounds.x, LevelManager.Instance.PlayerBounds.y);
 		position.y = Wave.Solve(position.x);
-		position.z = -Camera.main.transform.position.z;
-		Body.MovePosition(Camera.main.ViewportToWorldPoint(position));
+		position.z = -LevelManager.Instance.MainCamera.transform.position.z;
+		Body.MovePosition(LevelManager.Instance.MainCamera.ViewportToWorldPoint(position));
 
 		Wave.Offset = Wave.Offset + input.y * OffsetSpeed * deltaTime;
 		Wave.Offset %= Mathf.PI * 2f;

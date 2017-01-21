@@ -33,8 +33,8 @@ public class Wave : MonoBehaviour
 		for (int i = 0; i < positions.Length; i++)
 		{
 			float ratio = (float)i / Definition;
-			var position = new Vector3(ratio, Solve(ratio), -Camera.main.transform.position.z);
-			positions[i] = Camera.main.ViewportToWorldPoint(position);
+			var position = new Vector3(ratio, Solve(ratio), -LevelManager.Instance.MainCamera.transform.position.z);
+			positions[i] = LevelManager.Instance.MainCamera.ViewportToWorldPoint(position);
 		}
 
 		Line.numPositions = Definition;
