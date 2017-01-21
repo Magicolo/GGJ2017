@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
 
 	public void Restart()
 	{
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	void Awake()
@@ -46,7 +46,12 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
-		if (HasLost)
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			Restart();
+			return;
+		}
+		else if (HasLost)
 			return;
 
 		Speed += Increment * Time.deltaTime;
