@@ -47,7 +47,6 @@ public class Wave : MonoBehaviour
 		{
 			case Shape.Sine:
 				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + Center;
-				break;
 			default:
 				return time;
 		}
