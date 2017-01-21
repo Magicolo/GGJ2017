@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
 	public Camera UICamera;
 	public Wave Wave;
 
-	public float Speed { get { return ElapsedTime / 30f + 1f; } }
+	public float Speed { get { return ElapsedTime / 60f + 1f; } }
 	public bool HasLost { get; private set; }
 	public float ElapsedTime { get; private set; }
 	public float LightSpeedRatio
@@ -61,10 +61,11 @@ public class LevelManager : MonoBehaviour
 		}
 
 		ElapsedTime += Time.deltaTime;
+		UpdateBackground();
 	}
 
 	void UpdateBackground()
 	{
-
+		MainCamera.backgroundColor = MainCamera.backgroundColor.HueShift(Time.deltaTime * Speed * 0.025f);
 	}
 }
