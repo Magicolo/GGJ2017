@@ -8,7 +8,6 @@ public class WavePlayer : MonoBehaviour
 {
 	public float AmplitudeSpeed = 1f;
 	public float FrequencySpeed = 1f;
-	public Wave Wave;
 
 	void Start()
 	{
@@ -22,8 +21,9 @@ public class WavePlayer : MonoBehaviour
 
 	void UpdateInput(Vector2 input, float deltaTime)
 	{
-		Wave.Frequency = Mathf.Clamp(Wave.Frequency - input.x * FrequencySpeed * deltaTime, 1f, 5f);
-		Wave.Amplitude = Mathf.Clamp(Wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, 0.45f);
+		var wave = LevelManager.Instance.Wave;
+		wave.Frequency = Mathf.Clamp(wave.Frequency - input.x * FrequencySpeed * deltaTime, 1f, 5f);
+		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, 0.45f);
 	}
 
 	void OnLost()

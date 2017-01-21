@@ -11,12 +11,15 @@ public class LevelManager : MonoBehaviour
 
 	public event Action OnLost;
 
-	public Camera MainCamera;
-	public Camera UICamera;
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
-
 	public float Speed = 0.5f;
 	public float Increment = 0.01f;
+
+	public Camera MainCamera;
+	public Camera UICamera;
+	public Wave Wave;
+
+	public bool HasLost { get; private set; }
 
 	public float LightSpeedRatio
 	{
@@ -25,13 +28,15 @@ public class LevelManager : MonoBehaviour
 
 	public void Lose()
 	{
+		HasLost = true;
+
 		if (OnLost != null)
 			OnLost();
 	}
 
 	public void Restart()
 	{
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	void Awake()
@@ -41,6 +46,14 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			Restart();
+			return;
+		}
+		else if (HasLost)
+			return;
+
 		Speed += Increment * Time.deltaTime;
 
 		if (LightSpeedRatio >= 1f)
