@@ -7,7 +7,7 @@ using UnityEngine;
 public class ParticlePlayer : MonoBehaviour
 {
 	public float MoveSpeed = 10f;
-	public float OffsetSpeed = 3f;
+
 	public SpriteRenderer Renderer;
 	public Rigidbody2D Body;
 	public ParticleSystem DeathParticles;
@@ -20,15 +20,15 @@ public class ParticlePlayer : MonoBehaviour
 	void UpdateInput(Vector2 input, float deltaTime)
 	{
 		var wave = LevelManager.Instance.Wave;
-		var motion = new Vector2(input.x * MoveSpeed, 0f) * deltaTime;
+		var motion = new Vector2((input.x * MoveSpeed) / Mathf.Pow(wave.Frequency * wave.Amplitude, 0.25f), 0f) * deltaTime;
 		var position = LevelManager.Instance.MainCamera.WorldToViewportPoint(Body.position + motion);
 		position.x = Mathf.Clamp(position.x, LevelManager.Instance.PlayerBounds.x, LevelManager.Instance.PlayerBounds.y);
 		position.y = wave.Solve(position.x);
 		position.z = -LevelManager.Instance.MainCamera.transform.position.z;
 		Body.MovePosition(LevelManager.Instance.MainCamera.ViewportToWorldPoint(position));
 
-		wave.Offset = wave.Offset + input.y * OffsetSpeed * deltaTime;
-		wave.Offset %= Mathf.PI * 2f;
+		//wave.Offset = wave.Offset + input.y * OffsetSpeed * deltaTime;
+		//wave.Offset %= Mathf.PI * 2f;
 	}
 
 	void OnTriggerEnter2D()

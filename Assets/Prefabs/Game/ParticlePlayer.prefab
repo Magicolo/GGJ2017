@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmplitudeSpeed: 1
-  FrequencySpeed: 2
+  FrequencySpeed: 2.5
 --- !u!198 &198353767897048712
 ParticleSystem:
   m_ObjectHideFlags: 1
