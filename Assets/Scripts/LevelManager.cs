@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
 	public event Action OnLost;
 
-	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
+	public Rect Bounds = Rect.MinMaxRect(0.1f, 0.1f, 0.23f, 0.83f);
 	public float Speed = 1f;
 
 	public Camera MainCamera;
