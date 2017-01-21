@@ -22,6 +22,8 @@ public class ChunkManager : MonoBehaviour
 	void Start()
 	{
 		level = Object.FindObjectOfType<ChunkLevel>();
+		if (level == null)
+			Debug.LogError("Tu as oublier de mettre un chunkLevel, please!");
 		NextChunk();
 	}
 
