@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public enum Shape
 {
 	Sine,
+	Square,
 }
 
 public class Wave : MonoBehaviour
@@ -47,6 +48,8 @@ public class Wave : MonoBehaviour
 		{
 			case Shape.Sine:
 				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + Center;
+			case Shape.Square:
+				return Mathf.Clamp(Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * 10f, -1f, 1f) * Amplitude + Center;
 			default:
 				return time;
 		}

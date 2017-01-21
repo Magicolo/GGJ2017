@@ -4,20 +4,7 @@ using UnityEngine;
 
 public class RightLimit : MonoBehaviour
 {
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
+	void OnTriggerExit2D(Collider2D collision)
 	{
 		ChunkManager.instance.NextChunk();
 	}

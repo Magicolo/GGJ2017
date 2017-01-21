@@ -13,7 +13,7 @@ public class ChunkManager : MonoBehaviour
 	public int DistanceBetweenChunks = 20;
 
 
-	private void Awake()
+	void Awake()
 	{
 		instance = this;
 	}

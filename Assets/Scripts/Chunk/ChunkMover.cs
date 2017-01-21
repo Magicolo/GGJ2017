@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChunkMover : MonoBehaviour
 {
-
 	public Chunk chunk;
 
 	void Start()
@@ -15,7 +14,7 @@ public class ChunkMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var xSpeed = -DifficultyManager.Instance.Speed;
+		var xSpeed = -LevelManager.Instance.Speed;
 		transform.Translate(xSpeed, 0, 0);
 	}
 }
