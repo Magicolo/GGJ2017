@@ -9,6 +9,7 @@ public class ParticlePlayer : MonoBehaviour
 	public float MoveSpeed = 10f;
 	public float OffsetSpeed = 3f;
 	public Wave Wave;
+	public SpriteRenderer Renderer;
 	public Rigidbody2D Body;
 	public ParticleSystem DeathParticles;
 
@@ -30,8 +31,11 @@ public class ParticlePlayer : MonoBehaviour
 		Wave.Offset %= Mathf.PI * 2f;
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
+	void OnCollisionEnter2D()
 	{
+		DeathParticles.transform.parent = null;
 		DeathParticles.Play();
+		LevelManager.Instance.Lose();
+		Destroy(gameObject);
 	}
 }

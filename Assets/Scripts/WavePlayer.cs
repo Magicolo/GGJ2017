@@ -10,6 +10,11 @@ public class WavePlayer : MonoBehaviour
 	public float FrequencySpeed = 1f;
 	public Wave Wave;
 
+	void Start()
+	{
+		LevelManager.Instance.OnLost += OnLost;
+	}
+
 	void FixedUpdate()
 	{
 		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")), Time.fixedDeltaTime);
@@ -19,5 +24,11 @@ public class WavePlayer : MonoBehaviour
 	{
 		Wave.Frequency = Mathf.Clamp(Wave.Frequency + input.x * FrequencySpeed * deltaTime, 1f, 5f);
 		Wave.Amplitude = Mathf.Clamp(Wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, 0.45f);
+	}
+
+	void OnLost()
+	{
+		LevelManager.Instance.OnLost -= OnLost;
+		Destroy(gameObject);
 	}
 }
