@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7fad5bd6e7d1b4ea643b33938e87ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerBounds: {x: 0, y: 1}
+  PlayerBounds: {x: 0, y: 0.9}
   Speed: 1
   MainCamera: {fileID: 20241215971554942}
   UICamera: {fileID: 20279406326054674}
@@ -1011,8 +1011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Shape: 0
   Frequency: 2
-  Amplitude: 0.5
-  Center: 0.5
+  Amplitude: 0.3
+  Center: 0.53
   Offset: 0
   Definition: 500
   Line: {fileID: 120944829258576980}
