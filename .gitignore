@@ -1,8 +1,6 @@
 **/Unity/*.csproj
 **/Unity/*.sln
-**/Unity/Library/*
-**/Unity/Library/UnityAssemblies/*
-!**/Unity/Library/UnityAssemblies/*.dll
+Library/
 
 [Tt]emp/
 [Bb]uild/
@@ -30,5 +28,3 @@
 
 *.csproj.user
 *.suo
-**/ProjectVersion.txt
-**/version.txt
