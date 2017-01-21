@@ -31,7 +31,7 @@ public class ParticlePlayer : MonoBehaviour
 		wave.Offset %= Mathf.PI * 2f;
 	}
 
-	void OnCollisionEnter2D()
+	void OnTriggerEnter2D()
 	{
 		DeathParticles.transform.parent = null;
 		DeathParticles.Play();
