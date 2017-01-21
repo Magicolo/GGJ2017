@@ -71,6 +71,7 @@ public class ChunkManager : MonoBehaviour
 
 		var mover = newGo.AddComponent<ChunkMover>();
 		mover.SpeedModifier = SpeedModifier * Random.Range(nextChunk.minSpeed, nextChunk.maxSpeed);
+		mover.ySpeed = nextChunk.ySpeed;
 
 		newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();

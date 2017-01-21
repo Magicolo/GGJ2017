@@ -13,6 +13,8 @@ public class Chunk : MonoBehaviour
 	public float minSpeed = 1;
 	public float maxSpeed = 1;
 
+	public float ySpeed = 0;
+
 
 	private void OnDrawGizmos()
 	{

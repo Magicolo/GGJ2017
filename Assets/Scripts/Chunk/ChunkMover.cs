@@ -7,6 +7,8 @@ public class ChunkMover : MonoBehaviour
 	public Chunk chunk;
 	public float SpeedModifier;
 
+	public float ySpeed;
+
 	void Start()
 	{
 		chunk = GetComponent<Chunk>();
@@ -15,7 +17,9 @@ public class ChunkMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var xSpeed = -LevelManager.Instance.Speed;
-		transform.Translate(xSpeed, 0, 0);
+		var x = -LevelManager.Instance.Speed * SpeedModifier * Time.deltaTime;
+		var y = Mathf.Sin(Time.time) * ySpeed;
+		transform.Translate(x, 0, 0);
+		transform.position.Set(transform.position.x, y, 0);
 	}
 }
