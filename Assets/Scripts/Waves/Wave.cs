@@ -26,15 +26,15 @@ public class Wave : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		offset = offset + DifficultyManager.Instance.Speed * Time.deltaTime;
+		offset = offset + LevelManager.Instance.Speed * Time.deltaTime;
 		offset %= Mathf.PI * 2f;
 		var positions = new Vector3[Definition];
 
 		for (int i = 0; i < positions.Length; i++)
 		{
 			float ratio = (float)i / Definition;
-			var position = new Vector3(ratio, Solve(ratio), -Camera.main.transform.position.z);
-			positions[i] = Camera.main.ViewportToWorldPoint(position);
+			var position = new Vector3(ratio, Solve(ratio), -LevelManager.Instance.MainCamera.transform.position.z);
+			positions[i] = LevelManager.Instance.MainCamera.ViewportToWorldPoint(position);
 		}
 
 		Line.numPositions = Definition;
@@ -47,7 +47,6 @@ public class Wave : MonoBehaviour
 		{
 			case Shape.Sine:
 				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + Center;
-				break;
 			default:
 				return time;
 		}
