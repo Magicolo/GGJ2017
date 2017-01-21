@@ -44,6 +44,7 @@ public class ChunkManager : MonoBehaviour
 		var box = newGo.AddComponent<BoxCollider2D>();
 		box.offset = new Vector2(nextChunk.Width / 2, 50);
 		box.size = new Vector2(nextChunk.Width, 100);
+		newGo.layer = LayerMask.NameToLayer("Chunk");
 
 		CurrentChunk = nextChunk;
 	}

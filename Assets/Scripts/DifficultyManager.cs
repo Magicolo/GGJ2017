@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DifficultyManager : MonoBehaviour {
+public class DifficultyManager : MonoBehaviour
+{
 
 	public static DifficultyManager instance;
 
@@ -14,12 +15,14 @@ public class DifficultyManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start()
+	{
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
+
 	}
 }
