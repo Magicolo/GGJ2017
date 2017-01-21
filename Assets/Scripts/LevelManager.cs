@@ -11,12 +11,13 @@ public class LevelManager : MonoBehaviour
 
 	public event Action OnLost;
 
-	public Camera MainCamera;
-	public Camera UICamera;
 	public Vector2 PlayerBounds = new Vector2(0f, 0.75f);
-
 	public float Speed = 0.5f;
 	public float Increment = 0.01f;
+
+	public Camera MainCamera;
+	public Camera UICamera;
+	public Wave Wave;
 
 	public bool HasLost { get; private set; }
 
