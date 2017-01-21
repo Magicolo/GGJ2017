@@ -25,7 +25,7 @@ public class Wave : MonoBehaviour
 
 	float offset;
 
-	void Update()
+	void FixedUpdate()
 	{
 		offset = offset + Speed * Time.deltaTime;
 		offset %= Mathf.PI * 2f;

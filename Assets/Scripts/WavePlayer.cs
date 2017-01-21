@@ -10,9 +10,9 @@ public class WavePlayer : MonoBehaviour
 	public float FrequencySpeed = 1f;
 	public Wave Wave;
 
-	void Update()
+	void FixedUpdate()
 	{
-		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")), Time.deltaTime);
+		UpdateInput(new Vector2(Input.GetAxis("Horizontal2"), Input.GetAxis("Vertical2")), Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
