@@ -51,8 +51,8 @@ Shader "Unlit/Color" {
 
 	fixed4 frag(v2f i) : COLOR
 	{
-		float x = abs(i.scrPos.x - _Raster);
-		fixed4 col = _Color * x;
+		float x = 1 - abs(i.scrPos.x - _Raster) * 20;
+		fixed4 col = float4(0.2 + x * 0.5, 1 - x * 0.5, 0.2 + x * 0.5, 1);
 		UNITY_APPLY_FOG(i.fogCoord, col);
 		UNITY_OPAQUE_ALPHA(col.a);
 		return col;

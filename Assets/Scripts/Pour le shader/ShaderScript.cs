@@ -11,13 +11,15 @@ public class ShaderScript : MonoBehaviour
 	public Material Material;
 
 	public float RasterSpeed = 10;
+	float v = 0;
 
 	private void Update()
 	{
 		if (Material == null)
 			return;
-		Material.SetFloat("_Raster", Mathf.Sin(RasterSpeed * Time.time));
-		Debug.Log(Mathf.Sin(Time.time));
+		v += RasterSpeed * Time.deltaTime;
+		v %= 1;
+		Material.SetFloat("_Raster", v);
 	}
 }
 

@@ -135,21 +135,6 @@ Prefab:
       propertyPath: UICamera
       value: 
       objectReference: {fileID: 1464243055}
-    - target: {fileID: 114006654096031428, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: BackgroundMaxLight
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006654096031428, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: Speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 120944829258576980, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88c1ba1d4032c8a40b8b57bd7987a768, type: 2}
   m_IsPrefabParent: 0
@@ -243,11 +228,6 @@ Prefab:
     - target: {fileID: 4119042838472478, guid: fb567e8b2cca3cf4e9d04fa8a6c46347, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114059321224934976, guid: fb567e8b2cca3cf4e9d04fa8a6c46347,
-        type: 2}
-      propertyPath: FirstChunkStartDistance
-      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb567e8b2cca3cf4e9d04fa8a6c46347, type: 2}
@@ -346,24 +326,6 @@ Camera:
   m_PrefabParentObject: {fileID: 20320652813326382, guid: 4b38ff3593d9b6b4a80a28b37229ce6e,
     type: 2}
   m_PrefabInternal: {fileID: 870706751}
---- !u!1 &1872399730 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1652826072912028, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-    type: 2}
-  m_PrefabInternal: {fileID: 599113177}
---- !u!114 &1872399734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1872399730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4136748eeb6c974b96ae66f96b87c5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
-  RasterSpeed: 10
 --- !u!1001 &2144392821
 Prefab:
   m_ObjectHideFlags: 0
