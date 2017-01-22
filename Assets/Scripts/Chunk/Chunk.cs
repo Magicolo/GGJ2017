@@ -8,7 +8,7 @@ public class Chunk : MonoBehaviour
 	public int Width;
 	public bool IsHard = false;
 
-	private bool CanFlipInX = true;
+	//private bool CanFlipInX = true;
 	public bool CanFlipInY = true;
 
 	public float ySpeed = 0;
