@@ -61,15 +61,17 @@ MonoBehaviour:
   - chunk: {fileID: 114620271091169654, guid: a93a8a275b2299e4b8b61aa52acc2c0e, type: 2}
     weight: 3
   - chunk: {fileID: 114627005982445402, guid: c0eccc9ab79e6094984c647397da7fb2, type: 2}
-    weight: 4
+    weight: 2
   - chunk: {fileID: 114206292772279880, guid: d5bc457153cf79f468d670989bd605d7, type: 2}
-    weight: 4
+    weight: 3
   - chunk: {fileID: 114039115777909590, guid: 7f56a6cc395a82a4a9f97b5ef7c1be95, type: 2}
-    weight: 4
+    weight: 3
   - chunk: {fileID: 114194259677322738, guid: 11a7b934d172c1d4da3cddd6d7b0e51d, type: 2}
-    weight: 4
+    weight: 2
   - chunk: {fileID: 114151765026432484, guid: 7547dff8f43c68941ae26d4da1225401, type: 2}
-    weight: 4
+    weight: 3
   - chunk: {fileID: 114590874678219620, guid: fb14423086fce7741ab59fb309c3eff9, type: 2}
     weight: 4
+  - chunk: {fileID: 114055255161387120, guid: 1488bd44efa30d243a8771e57e1b85f9, type: 2}
+    weight: 2
   Difficulty: 2
