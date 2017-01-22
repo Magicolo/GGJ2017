@@ -31,7 +31,7 @@ public class ParticlePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")).normalized, Time.fixedDeltaTime);
+		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")), Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
@@ -62,7 +62,7 @@ public class ParticlePlayer : MonoBehaviour
 			TunnelLeft.position = LevelManager.Instance.MainCamera.ViewportToWorldPoint(left);
 			TunnelRight.position = LevelManager.Instance.MainCamera.ViewportToWorldPoint(right);
 
-			if ((input.y <= -0.5f && left.x >= LevelManager.Instance.Bounds.xMin) || (input.y >= 0.5f && right.x <= LevelManager.Instance.Bounds.xMax))
+			if ((input.y <= -0.9f && left.x >= LevelManager.Instance.Bounds.xMin) || (input.y >= 0.9f && right.x <= LevelManager.Instance.Bounds.xMax))
 			{
 				var target = input.y < 0f ? TunnelLeft.position : TunnelRight.position;
 				TunnelStartEffect.transform.parent = null;
