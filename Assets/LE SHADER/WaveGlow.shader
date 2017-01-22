@@ -3,9 +3,8 @@
 // - no lightmap support
 // - no texture
 
-Shader "Wave" {
+Shader "Robart/Wave" {
 	Properties{
-		_Color("Main Color", Color) = (1,1,1,1)
 		_PlayerX("Player X", Range(0,1)) = 0.05 // sliders
 		_Length("Length", Range(0,1)) = 0.05 // sliders
 	}
@@ -36,7 +35,6 @@ Shader "Wave" {
 			UNITY_VERTEX_OUTPUT_STEREO
 	};
 
-	fixed4 _Color;
 	float _PlayerX;
 	float _Length;
 

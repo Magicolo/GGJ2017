@@ -3,9 +3,10 @@
 // - no lightmap support
 // - no texture
 
-Shader "Oscilloscope" {
+Shader "Robart/Oscilloscope" {
 	Properties{
 		_Color("Main Color", Color) = (1,1,1,1)
+		_PlayerP("Player Position", Vector) = (1,1,1,1)
 		_Raster("Raster Line", Range(0,1)) = 0.05 // sliders
 	}
 
@@ -35,7 +36,7 @@ Shader "Oscilloscope" {
 		UNITY_VERTEX_OUTPUT_STEREO
 	};
 
-	fixed4 _Color;
+	float4  _PlayerP;
 	float _Raster;
 
 	v2f vert(appdata_t v)

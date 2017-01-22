@@ -7,8 +7,8 @@ using System.Collections.Generic;
 
 public class ShaderScript : MonoBehaviour
 {
-	public Material Material;
-	public Material LineMaterial;
+	public Material ObstacleMat;
+	public Material WaveMat;
 	public static ShaderScript Instance;
 
 	public float RasterSpeed = 10;
@@ -27,21 +27,24 @@ public class ShaderScript : MonoBehaviour
 	{
 		player = player == null ? FindObjectOfType<ParticlePlayer>() : player;
 
-		if (Material == null)
+		if (ObstacleMat == null)
 			return;
 		v += RasterSpeed * Time.deltaTime;
 		v %= 1;
-		Material.SetFloat("_Raster", v);
+		ObstacleMat.SetFloat("_Raster", v);
 
+		//Line
 		if (player == null)
 			return;
 
-		float x = LevelManager.Instance.MainCamera.WorldToViewportPoint(player.transform.position).x;
-		LineMaterial.SetFloat("_PlayerX", x);
+		var pp = LevelManager.Instance.MainCamera.WorldToViewportPoint(player.transform.position);
+		ObstacleMat.SetVector("_PlayerP", pp);
+
+		WaveMat.SetFloat("_PlayerX", pp.x);
 		var cm = ChunkManager.instance;
 
 		int d = (cm.MaxDifficulty - cm.CurrentDifficulty) / cm.MaxDifficulty * 5;
-		LineMaterial.SetFloat("_Length", d);
+		WaveMat.SetFloat("_Length", d);
 	}
 }
 
