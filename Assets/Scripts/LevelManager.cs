@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
 	public Camera UICamera;
 	public Wave Wave;
 
-	public float Difficulty { get { return ElapsedTime / 60f + 1f; } }
+	public float Difficulty { get { return ElapsedTime / 20f + 1f; } }
 	public bool HasLost { get; private set; }
 	public float ElapsedTime { get; private set; }
 	public float LightSpeedRatio
