@@ -11,6 +11,9 @@ public class ChunkColliderGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		var Material = LevelManager.Instance.GetComponent<ShaderScript>().Material;
+		//TODO USE ME !!!! 
+
 		myRenderer = GetComponent<LineRenderer>();
 		polyCol = gameObject.AddComponent<PolygonCollider2D>();
 

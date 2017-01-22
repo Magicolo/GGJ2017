@@ -12,12 +12,17 @@ public class LevelManager : MonoBehaviour
 	public event Action OnLost;
 
 	public Rect Bounds = Rect.MinMaxRect(0.1f, 0.1f, 0.23f, 0.83f);
-	public float Speed = 1f;
+	public float TimeSpeed = 1f;
+	public float FlickerIntensity = 0.2f;
 
 	public Camera MainCamera;
 	public Camera UICamera;
 	public Wave Wave;
 
+	public float Speed
+	{
+		get { return Mathf.Clamp(Mathf.Pow(Difficulty, 0.75f), 1f, 4f); }
+	}
 	public float Difficulty { get { return ElapsedTime / 20f + 1f; } }
 	public bool HasLost { get; private set; }
 	public float ElapsedTime { get; private set; }
@@ -25,11 +30,6 @@ public class LevelManager : MonoBehaviour
 	{
 		get { return 1f - 1f / Mathf.Pow(Difficulty * 4f, Difficulty / 4f); }
 	}
-
-	public float BackgroundLightFactor = 0.025f;
-	public float BackgroundLightFactorRandom = 0.01f;
-	public float BackgroundMaxLight = 0.2f;
-	float CurrentLightFactor;
 
 	public void Lose()
 	{
@@ -47,7 +47,6 @@ public class LevelManager : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
-		CurrentLightFactor = BackgroundLightFactor;
 	}
 
 	void Update()
@@ -65,21 +64,17 @@ public class LevelManager : MonoBehaviour
 			return;
 		}
 
-		ElapsedTime += Time.deltaTime * Speed;
+		ElapsedTime += Time.deltaTime * TimeSpeed;
 		UpdateBackground();
 	}
 
 	void UpdateBackground()
 	{
-		var color = MainCamera.backgroundColor;
-		var hsv = color.ToHSV();
-		var newV = (hsv.b + Time.deltaTime * Difficulty * CurrentLightFactor);
-		if (newV > BackgroundMaxLight)
-		{
-			newV = 0;
-			CurrentLightFactor = BackgroundLightFactor + UnityEngine.Random.Range(-BackgroundLightFactorRandom, BackgroundLightFactorRandom);
-		}
-		hsv.b = newV;
-		MainCamera.backgroundColor = hsv.ToRGB();
+		float random = UnityEngine.Random.Range(-FlickerIntensity, FlickerIntensity) * Difficulty;
+		MainCamera.backgroundColor = new Color(
+			Mathf.Clamp(Mathf.Lerp(MainCamera.backgroundColor.r, MainCamera.backgroundColor.r + random, Time.deltaTime), 0, 0.1f * Difficulty),
+			Mathf.Clamp(Mathf.Lerp(MainCamera.backgroundColor.g, MainCamera.backgroundColor.g + random, Time.deltaTime), 0, 0.1f * Difficulty),
+			Mathf.Clamp(Mathf.Lerp(MainCamera.backgroundColor.b, MainCamera.backgroundColor.b + random, Time.deltaTime), 0, 0.1f * Difficulty),
+			MainCamera.backgroundColor.a);
 	}
 }
