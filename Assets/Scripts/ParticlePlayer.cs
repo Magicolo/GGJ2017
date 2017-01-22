@@ -18,6 +18,8 @@ public class ParticlePlayer : MonoBehaviour
 	public ParticleSystem TunnelStartEffect;
 	public ParticleSystem TunnelEndEffect;
 	public AudioSource MotorSound;
+	public AudioSource DeathSound;
+	public AudioSource TunnelSound;
 
 	public float CooldownRatio
 	{
@@ -88,6 +90,7 @@ public class ParticlePlayer : MonoBehaviour
 				TunnelEndEffect.Play();
 				transform.position = target;
 				tunnelCounter = TunnelCooldown;
+				TunnelSound.Play();
 			}
 		}
 
@@ -104,6 +107,8 @@ public class ParticlePlayer : MonoBehaviour
 	{
 		DeathEffect.transform.parent = null;
 		DeathEffect.Play();
+		DeathSound.transform.parent = null;
+		DeathSound.Play();
 		LevelManager.Instance.Lose();
 		Destroy(gameObject);
 	}
