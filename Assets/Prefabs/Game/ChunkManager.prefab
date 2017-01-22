@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd00fd27f324f40be50a3db262b5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstChunkStartDistance: 100
+  FirstChunkStartDistance: 150
   DistanceBetweenChunks: 20
   SpeedModifier: 20

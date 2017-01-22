@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ChunkManager : MonoBehaviour
 {
 	public static ChunkManager instance;
 
-	ChunkLevel level;
+	ChunkLevel[] levels;
 	Chunk CurrentChunk;
 
 	public int FirstChunkStartDistance;
@@ -24,8 +25,9 @@ public class ChunkManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		level = Object.FindObjectOfType<ChunkLevel>();
-		if (level == null)
+		levels = UnityEngine.Object.FindObjectsOfType<ChunkLevel>();
+		Array.Sort(levels, (a, b) => a.Difficulty.CompareTo(b.Difficulty));
+		if (levels.Length == 0)
 			Debug.LogError("Tu as oublier de mettre un chunkLevel, please!");
 		NextChunk();
 	}
@@ -38,8 +40,11 @@ public class ChunkManager : MonoBehaviour
 
 	Chunk GetNextChunk()
 	{
+		var difficulty = (int)Mathf.Min(LevelManager.Instance.Difficulty, levels.Length) - 1;
+
+		var currentLevel = levels[difficulty];
 		float totalWeight = 0;
-		foreach (var c in level.Level)
+		foreach (var c in currentLevel.Level)
 		{
 			totalWeight += c.weight;
 		}
@@ -47,9 +52,9 @@ public class ChunkManager : MonoBehaviour
 		int infinitblockerthing = 22;
 		while (infinitblockerthing-- > 0)
 		{
-			float neededWeight = Random.Range(0, totalWeight);
+			float neededWeight = UnityEngine.Random.Range(0, totalWeight);
 			float weightcumul = 0;
-			foreach (var c in level.Level)
+			foreach (var c in currentLevel.Level)
 			{
 				weightcumul += c.weight;
 
@@ -71,7 +76,7 @@ public class ChunkManager : MonoBehaviour
 	{
 		var nextChunk = GetNextChunk();
 
-		var newGo = Object.Instantiate(nextChunk).gameObject;
+		var newGo = UnityEngine.Object.Instantiate(nextChunk).gameObject;
 		newGo.transform.position = new Vector3(0, -50, 0);
 		if (CurrentChunk == null)
 			newGo.transform.Translate(FirstChunkStartDistance, 0, 0);
@@ -82,15 +87,34 @@ public class ChunkManager : MonoBehaviour
 			newGo.transform.Translate(offset);
 		}
 
-		newGo.AddComponent<ChunkMover>();
+		var mover = newGo.AddComponent<ChunkMover>();
 
 
-		newGo.AddComponent<Rigidbody2D>();
+		var body = newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();
 		box.offset = new Vector2(nextChunk.Width / 2, 50);
 		box.size = new Vector2(nextChunk.Width, 100);
 		newGo.layer = LayerMask.NameToLayer("Chunk");
 
 		CurrentChunk = newGo.GetComponent<Chunk>();
+
+		var xFlip = 1;
+		var yFlip = 1;
+		/*if (CurrentChunk.CanFlipInX && UnityEngine.Random.Range(0, 2) < 1)
+		{
+			xFlip = -1;
+			newGo.transform.Translate(CurrentChunk.Width, 0, 0);
+		}*/
+
+		if (CurrentChunk.CanFlipInY && UnityEngine.Random.Range(0, 2) < 1)
+		{
+			yFlip = -1;
+			mover.yOffset = 100;
+		}
+
+		newGo.transform.localScale = new Vector3(xFlip * transform.localScale.x, yFlip * transform.localScale.y, transform.localScale.z);
+		if (yFlip == -1)
+
+			newGo.transform.Translate(0, 100, 0);
 	}
 }
