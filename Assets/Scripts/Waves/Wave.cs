@@ -41,6 +41,9 @@ public class Wave : MonoBehaviour
 
 		Line.numPositions = Definition;
 		Line.SetPositions(positions);
+
+		if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton3))
+			Shape = Shape == Shape.Sine ? Shape.Square : Shape.Sine;
 	}
 
 	public float Solve(float time)
