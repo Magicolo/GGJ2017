@@ -351,7 +351,8 @@ MonoBehaviour:
   MainCamera: {fileID: 20241215971554942}
   UICamera: {fileID: 0}
   Wave: {fileID: 114704641059727588}
-  BackgroundLightFactor: 0.5
+  BackgroundLightFactor: 0.35
+  BackgroundLightFactorRandom: 0.3
   BackgroundMaxLight: 0.1
 --- !u!114 &114275697925745408
 MonoBehaviour:

@@ -135,31 +135,6 @@ Prefab:
       propertyPath: UICamera
       value: 
       objectReference: {fileID: 1464243055}
-    - target: {fileID: 20241215971554942, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20241215971554942, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20241215971554942, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006654096031428, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: BackgroundLightFactor
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114006654096031428, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
-        type: 2}
-      propertyPath: BackgroundMaxLight
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88c1ba1d4032c8a40b8b57bd7987a768, type: 2}
   m_IsPrefabParent: 0
@@ -201,6 +176,16 @@ Prefab:
     - target: {fileID: 4724812914811204, guid: 4b38ff3593d9b6b4a80a28b37229ce6e, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224699324436996958, guid: 4b38ff3593d9b6b4a80a28b37229ce6e,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224699324436996958, guid: 4b38ff3593d9b6b4a80a28b37229ce6e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b38ff3593d9b6b4a80a28b37229ce6e, type: 2}
