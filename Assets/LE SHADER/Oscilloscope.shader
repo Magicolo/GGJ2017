@@ -52,7 +52,7 @@ Shader "Robart/Oscilloscope" {
 
 	fixed4 frag(v2f i) : COLOR
 	{
-		float pd = 2 - (abs(i.scrPos - _PlayerP)).x*5;
+		float pd = 2 - (abs(i.scrPos - _PlayerP)).x * 5;
 		if (pd <= 0) pd = 0;
 
 		float x = 1 - abs(i.scrPos.x - _Raster) * 20;

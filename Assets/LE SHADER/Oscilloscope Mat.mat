@@ -105,7 +105,7 @@ Material:
       second: 0.02
     - first:
         name: _Raster
-      second: 0.09550569
+      second: 0.41941145
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -130,4 +130,4 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _PlayerP
-      second: {r: 0.6532304, g: 0.82055545, b: 100, a: 0}
+      second: {r: 0.3324585, g: 0.7150552, b: 100, a: 0}
