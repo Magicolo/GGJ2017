@@ -26,6 +26,9 @@ public class LevelManager : MonoBehaviour
 		get { return 1f - 1f / Mathf.Pow(Difficulty * 4f, Difficulty / 4f); }
 	}
 
+	public float BackgroundLightFactor = 0.025f;
+	public float BackgroundMaxLight = 0.2f;
+
 	public void Lose()
 	{
 		HasLost = true;
@@ -65,6 +68,9 @@ public class LevelManager : MonoBehaviour
 
 	void UpdateBackground()
 	{
-		MainCamera.backgroundColor = MainCamera.backgroundColor.HueShift(Time.deltaTime * Difficulty * 0.025f);
+		var color = MainCamera.backgroundColor;
+		var hsv = color.ToHSV();
+		hsv.b = (hsv.b + Time.deltaTime * Difficulty * BackgroundLightFactor) % BackgroundMaxLight;
+		MainCamera.backgroundColor = hsv.ToRGB();
 	}
 }
