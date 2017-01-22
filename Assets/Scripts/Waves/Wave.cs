@@ -17,6 +17,7 @@ public class Wave : MonoBehaviour
 	public float Frequency = 1f;
 	public float Amplitude = 1f;
 	public float Offset;
+	public float Speed = 1f;
 
 	[Header("Render Settings")]
 	public int Definition = 1000;
@@ -26,7 +27,7 @@ public class Wave : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		offset += LevelManager.Instance.Difficulty * Time.deltaTime;
+		offset += LevelManager.Instance.Difficulty * Time.deltaTime * Speed;
 		offset %= Mathf.PI * 2f;
 
 		var positions = new Vector3[Definition];
@@ -44,14 +45,20 @@ public class Wave : MonoBehaviour
 
 	public float Solve(float time)
 	{
+		float x = time * Mathf.PI * 2f * Frequency + Offset + offset;
+		x %= Mathf.PI * 2f;
+		float y = x;
+
 		switch (Shape)
 		{
 			case Shape.Sine:
-				return Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * Amplitude + LevelManager.Instance.Bounds.center.y;
+				y = Mathf.Sin(x);
+				break;
 			case Shape.Square:
-				return Mathf.Clamp(Mathf.Sin(time * Mathf.PI * 2f * Frequency + Offset + offset) * 10f, -1f, 1f) * Amplitude + LevelManager.Instance.Bounds.center.y;
-			default:
-				return time;
+				y = Mathf.Clamp(Mathf.Sin(x) * 1000f, -1f, 1f);
+				break;
 		}
+
+		return y * Amplitude + LevelManager.Instance.Bounds.center.y;
 	}
 }
