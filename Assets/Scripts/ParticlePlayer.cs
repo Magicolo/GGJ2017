@@ -70,9 +70,11 @@ public class ParticlePlayer : MonoBehaviour
 			TunnelLeft.position = LevelManager.Instance.MainCamera.ViewportToWorldPoint(left);
 			TunnelRight.position = LevelManager.Instance.MainCamera.ViewportToWorldPoint(right);
 
-			if ((input.y <= -0.9f && left.x >= LevelManager.Instance.Bounds.xMin) || (input.y >= 0.9f && right.x <= LevelManager.Instance.Bounds.xMax))
+			bool tunnelLeft = Input.GetKeyDown(KeyCode.JoystickButton4);
+			bool tunnelRight = Input.GetKeyDown(KeyCode.JoystickButton5);
+			if ((tunnelLeft && left.x >= LevelManager.Instance.Bounds.xMin) || (tunnelRight && right.x <= LevelManager.Instance.Bounds.xMax))
 			{
-				var target = input.y < 0f ? TunnelLeft.position : TunnelRight.position;
+				var target = tunnelLeft ? TunnelLeft.position : TunnelRight.position;
 				TunnelStartEffect.transform.parent = null;
 				TunnelStartEffect.transform.position = transform.position;
 				TunnelStartEffect.Play();
