@@ -27,7 +27,9 @@ public class LevelManager : MonoBehaviour
 	}
 
 	public float BackgroundLightFactor = 0.025f;
+	public float BackgroundLightFactorRandom = 0.01f;
 	public float BackgroundMaxLight = 0.2f;
+	float CurrentLightFactor;
 
 	public void Lose()
 	{
@@ -45,6 +47,7 @@ public class LevelManager : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
+		CurrentLightFactor = BackgroundLightFactor;
 	}
 
 	void Update()
@@ -70,7 +73,13 @@ public class LevelManager : MonoBehaviour
 	{
 		var color = MainCamera.backgroundColor;
 		var hsv = color.ToHSV();
-		hsv.b = (hsv.b + Time.deltaTime * Difficulty * BackgroundLightFactor) % BackgroundMaxLight;
+		var newV = (hsv.b + Time.deltaTime * Difficulty * CurrentLightFactor);
+		if (newV > BackgroundMaxLight)
+		{
+			newV = 0;
+			CurrentLightFactor = BackgroundLightFactor + UnityEngine.Random.Range(-BackgroundLightFactorRandom, BackgroundLightFactorRandom);
+		}
+		hsv.b = newV;
 		MainCamera.backgroundColor = hsv.ToRGB();
 	}
 }
