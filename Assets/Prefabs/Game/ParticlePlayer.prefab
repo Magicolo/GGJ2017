@@ -333,7 +333,7 @@ MonoBehaviour:
   Renderer: {fileID: 212771680380400336}
   Body: {fileID: 50958164239522776}
   DeathEffect: {fileID: 198906692137438380}
-  TunnelCooldown: 1
+  TunnelCooldown: 15
   TunnelLeft: {fileID: 4584592985101748}
   TunnelRight: {fileID: 4347931492953406}
   TunnelStartEffect: {fileID: 198868656641858350}
