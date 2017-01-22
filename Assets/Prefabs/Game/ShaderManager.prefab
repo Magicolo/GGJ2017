@@ -53,4 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleMat: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
   WaveMat: {fileID: 2100000, guid: f85132a5405d1c142999a997ec868ba2, type: 2}
+  LightMat: {fileID: 2100000, guid: d98ea59f87575f249ad945d1cfb0c1b7, type: 2}
   RasterSpeed: 2

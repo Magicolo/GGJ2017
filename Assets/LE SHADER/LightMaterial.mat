@@ -111,7 +111,7 @@ Material:
       second: 0.02
     - first:
         name: _PlayerX
-      second: 0.73
+      second: 0.5070929
     - first:
         name: _SmoothnessTextureChannel
       second: 0

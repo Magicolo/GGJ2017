@@ -9,6 +9,7 @@ public class ShaderScript : MonoBehaviour
 {
 	public Material ObstacleMat;
 	public Material WaveMat;
+	public Material LightMat;
 	public static ShaderScript Instance;
 
 	public float RasterSpeed = 10;
@@ -41,7 +42,9 @@ public class ShaderScript : MonoBehaviour
 		ObstacleMat.SetVector("_PlayerP", pp);
 
 		WaveMat.SetFloat("_PlayerX", pp.x);
+		LightMat.SetFloat("_PlayerX", pp.x);
 		var cm = ChunkManager.instance;
+
 
 		int d = (cm.MaxDifficulty - cm.CurrentDifficulty) / cm.MaxDifficulty;
 		WaveMat.SetFloat("_Length", d);
