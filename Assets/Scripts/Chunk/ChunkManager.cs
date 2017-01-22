@@ -14,6 +14,8 @@ public class ChunkManager : MonoBehaviour
 
 	public float SpeedModifier = 1;
 
+	bool justDidAHard;
+
 	void Awake()
 	{
 		instance = this;
@@ -42,15 +44,26 @@ public class ChunkManager : MonoBehaviour
 			totalWeight += c.weight;
 		}
 
-		float neededWeight = Random.Range(0, totalWeight);
-		float weightcumul = 0;
-		foreach (var c in level.Level)
+		int infinitblockerthing = 22;
+		while (infinitblockerthing-- > 0)
 		{
-			weightcumul += c.weight;
-			if (weightcumul >= neededWeight)
-				return c.chunk;
+			float neededWeight = Random.Range(0, totalWeight);
+			float weightcumul = 0;
+			foreach (var c in level.Level)
+			{
+				weightcumul += c.weight;
+
+				if (weightcumul >= neededWeight && !(justDidAHard && c.chunk.IsHard))
+				{
+					justDidAHard = c.chunk.IsHard;
+
+					return c.chunk;
+				}
+
+			}
 		}
 
+		Debug.LogError("Didnt found a chunk");
 		return null;
 	}
 
