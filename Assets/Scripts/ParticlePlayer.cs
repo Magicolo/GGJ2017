@@ -31,7 +31,7 @@ public class ParticlePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		UpdateInput(new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1")).normalized, Time.fixedDeltaTime);
+		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")).normalized, Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
