@@ -18,6 +18,10 @@ public class ParticlePlayer : MonoBehaviour
 	public ParticleSystem TunnelStartEffect;
 	public ParticleSystem TunnelEndEffect;
 
+	public float CooldownRatio
+	{
+		get { return Mathf.Clamp01(1f - tunnelCounter / TunnelCooldown); }
+	}
 	public bool CanTunnel
 	{
 		get { return tunnelCounter <= 0f; }

@@ -68,3 +68,4 @@ MonoBehaviour:
     weight: 4
   - chunk: {fileID: 114194259677322738, guid: 11a7b934d172c1d4da3cddd6d7b0e51d, type: 2}
     weight: 1
+  Difficulty: 1
