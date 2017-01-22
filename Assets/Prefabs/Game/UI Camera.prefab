@@ -666,7 +666,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 133
     m_Alignment: 0
@@ -677,11 +677,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'LIght Speed : 40%
 
-    Wave : Sin
+    Wave : Sine
 
-    Frequency : 5
-
-    Amplitude : 0.45'
+    Level: 3'
 --- !u!114 &114628115396991106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1114,7 +1112,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -80, y: 0}
-  m_SizeDelta: {x: 240, y: 120}
+  m_SizeDelta: {x: 350, y: 120}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!224 &224108048608084122
 RectTransform:
@@ -1282,8 +1280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: 0}
-  m_SizeDelta: {x: -14, y: -24}
+  m_AnchoredPosition: {x: 6.5, y: -0.5}
+  m_SizeDelta: {x: -17, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224609763389526534
 RectTransform:

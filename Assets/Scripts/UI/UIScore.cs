@@ -14,6 +14,7 @@ public class UIScore : MonoBehaviour
 		var wave = LevelManager.Instance.Wave;
 		float ratio = LevelManager.Instance.LightSpeedRatio;
 		string format = "";
+
 		if (ratio > 0.95)
 			format = "0000";
 		else if (ratio > 0.9)
@@ -23,11 +24,10 @@ public class UIScore : MonoBehaviour
 		else if (ratio > 0.5)
 			format = "0";
 
-		Text.text = string.Format("Light Speed: {0:0." + format + "}%\nWave: {1}\nFrequency: {2}\nAmplitude: {3}",
+		Text.text = string.Format("Light Speed: {0:0." + format + "}%\nWave: {1}\nLevel: {2}",
 			ratio * 100f,
 			wave.Shape,
-			wave.Frequency,
-			wave.Amplitude);
+			(int)LevelManager.Instance.Difficulty);
 
 		float danger = Mathf.Pow(ratio, 8f);
 		float random = UnityEngine.Random.Range(-danger, danger);
