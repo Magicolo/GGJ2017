@@ -66,7 +66,6 @@ Shader "Robart/Menu" {
 		float x = _Length + 1 - abs(i.scrPos.x - _MouseX) * 10;
 		col *= x;
 		UNITY_APPLY_FOG(i.fogCoord, col);
-		//UNITY_OPAQUE_ALPHA(col.a);
 		return col;
 	}
 		ENDCG
