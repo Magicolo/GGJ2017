@@ -52,4 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
+  LineMaterial: {fileID: 2100000, guid: 5fbcb556a6e27494e8f92f3ac2d2a783, type: 2}
   RasterSpeed: 2
