@@ -46,8 +46,12 @@ public class ShaderScript : MonoBehaviour
 		var cm = ChunkManager.instance;
 
 
-		int d = (cm.MaxDifficulty - cm.CurrentDifficulty) / cm.MaxDifficulty;
+		float d = (cm.MaxDifficulty - cm.CurrentDifficulty) * 1.0f / (1.0f * cm.MaxDifficulty);
 		WaveMat.SetFloat("_Length", d);
+
+		var a = LevelManager.Instance.Wave.Amplitude;
+		if (a == 0) a = 1f;
+		WaveMat.SetFloat("_Ampli", a);
 	}
 }
 

@@ -71,6 +71,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
+        name: _Ampli
+      second: -0.21000001
+    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -93,7 +96,7 @@ Material:
       second: 1
     - first:
         name: _Length
-      second: 0
+      second: 0.25
     - first:
         name: _Metallic
       second: 0
@@ -108,7 +111,7 @@ Material:
       second: 0.02
     - first:
         name: _PlayerX
-      second: 0.5070929
+      second: 0.31920224
     - first:
         name: _SmoothnessTextureChannel
       second: 0

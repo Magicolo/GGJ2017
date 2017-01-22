@@ -6,6 +6,7 @@
 Shader "Robart/Wave" {
 	Properties{
 		_PlayerX("Player X", Range(0,1)) = 0.05 // sliders
+		_Ampli("Ampli", Range(-1,1)) = 0.05 // sliders
 		_Length("Length", Range(0,1)) = 0.05 // sliders
 	}
 
@@ -37,6 +38,7 @@ Shader "Robart/Wave" {
 
 	float _PlayerX;
 	float _Length;
+	float _Ampli;
 
 	v2f vert(appdata_t v)
 	{
@@ -51,9 +53,15 @@ Shader "Robart/Wave" {
 
 	fixed4 frag(v2f i) : COLOR
 	{
-		float x = 1 - abs(i.scrPos.x - _PlayerX) * 5;
-		float thing = _Length * 2 + x ;
-		fixed4 col = float4(0.6 + thing, 0.5 + thing, 0.1 + thing, 1);
+		float x = (1 - abs(i.scrPos.x - _PlayerX) * 5) *0.2;
+		//x = 0;
+		float thing = _Length + x ;
+		float y = (i.scrPos.y - 0.5) * 5;
+		//if (i.scrPos.y > 0.5)
+//			y *= -1;
+		y *= _Ampli;
+		fixed4 col = float4(0.2 + thing + y, 0.1 + thing - y, 0.1 + thing, 1);
+		//col = float4(x, 0, 0, 0);
 		UNITY_APPLY_FOG(i.fogCoord, col);
 		UNITY_OPAQUE_ALPHA(col.a);
 		return col;
