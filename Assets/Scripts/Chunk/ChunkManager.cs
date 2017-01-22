@@ -10,6 +10,10 @@ public class ChunkManager : MonoBehaviour
 	ChunkLevel[] levels;
 	Chunk CurrentChunk;
 
+	public int MaxDifficulty { get { return levels.Length; } }
+
+	public int CurrentDifficulty { get { return (int)Mathf.Min(LevelManager.Instance.Difficulty, levels.Length) - 1; } }
+
 	public int FirstChunkStartDistance;
 	public int DistanceBetweenChunks = 20;
 
@@ -40,9 +44,7 @@ public class ChunkManager : MonoBehaviour
 
 	Chunk GetNextChunk()
 	{
-		var difficulty = (int)Mathf.Min(LevelManager.Instance.Difficulty, levels.Length) - 1;
-
-		var currentLevel = levels[difficulty];
+		var currentLevel = levels[CurrentDifficulty];
 		float totalWeight = 0;
 		foreach (var c in currentLevel.Level)
 		{

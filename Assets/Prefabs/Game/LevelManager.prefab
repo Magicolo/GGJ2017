@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b356405cc6638d9449d815163bd6b07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shape: 1
+  Shape: 0
   Frequency: 2
   Amplitude: 0.375
   Offset: 0
@@ -442,7 +442,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fbcb556a6e27494e8f92f3ac2d2a783, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -463,7 +463,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.25
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
