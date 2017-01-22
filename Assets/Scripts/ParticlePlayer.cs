@@ -31,13 +31,21 @@ public class ParticlePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		transform.Rotate(0f, 0f, Time.fixedDeltaTime * -500f * LevelManager.Instance.Speed);
 		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")), Time.fixedDeltaTime);
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
 	{
 		var wave = LevelManager.Instance.Wave;
-		var motion = new Vector3((input.x * MoveSpeed) / Mathf.Pow(wave.Frequency * wave.Amplitude, 0.5f), 0f) * deltaTime;
+		float speed = (input.x * MoveSpeed) / Mathf.Pow(wave.Frequency * Mathf.Abs(wave.Amplitude), 0.5f);
+
+		if (speed < 0f)
+			speed = Mathf.Max(speed, -MoveSpeed * 3f);
+		else
+			speed = Mathf.Min(speed, MoveSpeed * 3f);
+
+		var motion = new Vector3(speed, 0f) * deltaTime;
 		var position = LevelManager.Instance.MainCamera.WorldToViewportPoint(transform.position + motion);
 
 		position.x = Mathf.Clamp(position.x, LevelManager.Instance.Bounds.xMin, LevelManager.Instance.Bounds.xMax);
