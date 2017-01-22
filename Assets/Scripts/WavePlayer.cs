@@ -29,7 +29,7 @@ public class WavePlayer : MonoBehaviour
 		float offset = wave.Frequency * position.x * Mathf.PI * 2f + wave.Offset - frequency * position.x * Mathf.PI * 2f;
 		wave.Offset = offset;
 		wave.Frequency = frequency;
-		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.1f, bounds.height / 2f);
+		wave.Amplitude = Mathf.Clamp(wave.Amplitude + input.y * AmplitudeSpeed * deltaTime, 0.11f, bounds.height / 2f);
 	}
 
 	void OnLost()
