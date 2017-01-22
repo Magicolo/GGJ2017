@@ -135,6 +135,11 @@ Prefab:
       propertyPath: UICamera
       value: 
       objectReference: {fileID: 1464243055}
+    - target: {fileID: 114006654096031428, guid: 88c1ba1d4032c8a40b8b57bd7987a768,
+        type: 2}
+      propertyPath: TimeSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88c1ba1d4032c8a40b8b57bd7987a768, type: 2}
   m_IsPrefabParent: 0
