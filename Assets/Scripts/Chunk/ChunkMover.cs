@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChunkMover : MonoBehaviour
 {
 	public Chunk chunk;
+	public int yOffset;
 
 	void Start()
 	{
@@ -17,10 +18,10 @@ public class ChunkMover : MonoBehaviour
 		var x = -LevelManager.Instance.Difficulty * ChunkManager.instance.SpeedModifier * Time.deltaTime;
 		var y = Mathf.Sin(Time.time) * chunk.ySpeed;
 		transform.Translate(x, 0, 0);
-		transform.position = new Vector3(transform.position.x, y - 50);
+		transform.position = new Vector3(transform.position.x, y - 50 + yOffset);
 
 
-		if (transform.position.y < -chunk.Width - 200)
+		if (transform.position.x < -chunk.Width - 200)
 		{
 			Debug.LogWarning("A chunk went too fast and didnt touch the camera's limits! I have destroied it for ya but it shoudl'nt append...");
 			Destroy(gameObject);

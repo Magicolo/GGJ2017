@@ -219,11 +219,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114059321224934976, guid: fb567e8b2cca3cf4e9d04fa8a6c46347,
-        type: 2}
-      propertyPath: FirstChunkStartDistance
-      value: 150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb567e8b2cca3cf4e9d04fa8a6c46347, type: 2}
   m_IsPrefabParent: 0

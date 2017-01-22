@@ -8,6 +8,9 @@ public class Chunk : MonoBehaviour
 	public int Width;
 	public bool IsHard = false;
 
+	private bool CanFlipInX = true;
+	public bool CanFlipInY = true;
+
 	public float ySpeed = 0;
 
 
@@ -19,7 +22,11 @@ public class Chunk : MonoBehaviour
 		else
 			Gizmos.color = Color.green;
 
-		Gizmos.DrawWireCube(transform.position + size / 2, size);
+		var offset = Vector3.zero;
+		if (transform.localScale.y <= 0)
+			offset = new Vector3(0, -100, 0);
+
+		Gizmos.DrawWireCube(transform.position + size / 2 + offset, size);
 	}
 
 	// Use this for initialization

@@ -87,15 +87,34 @@ public class ChunkManager : MonoBehaviour
 			newGo.transform.Translate(offset);
 		}
 
-		newGo.AddComponent<ChunkMover>();
+		var mover = newGo.AddComponent<ChunkMover>();
 
 
-		newGo.AddComponent<Rigidbody2D>();
+		var body = newGo.AddComponent<Rigidbody2D>();
 		var box = newGo.AddComponent<BoxCollider2D>();
 		box.offset = new Vector2(nextChunk.Width / 2, 50);
 		box.size = new Vector2(nextChunk.Width, 100);
 		newGo.layer = LayerMask.NameToLayer("Chunk");
 
 		CurrentChunk = newGo.GetComponent<Chunk>();
+
+		var xFlip = 1;
+		var yFlip = 1;
+		/*if (CurrentChunk.CanFlipInX && UnityEngine.Random.Range(0, 2) < 1)
+		{
+			xFlip = -1;
+			newGo.transform.Translate(CurrentChunk.Width, 0, 0);
+		}*/
+
+		if (CurrentChunk.CanFlipInY && UnityEngine.Random.Range(0, 2) < 1)
+		{
+			yFlip = -1;
+			mover.yOffset = 100;
+		}
+
+		newGo.transform.localScale = new Vector3(xFlip * transform.localScale.x, yFlip * transform.localScale.y, transform.localScale.z);
+		if (yFlip == -1)
+
+			newGo.transform.Translate(0, 100, 0);
 	}
 }
