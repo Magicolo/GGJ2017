@@ -51,14 +51,14 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.R))
+		if (HasLost && (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.JoystickButton2)))
 		{
 			Restart();
 			return;
 		}
 		else if (HasLost)
 			return;
-		else if (LightSpeedRatio >= 1f)
+		else if (1f - LightSpeedRatio < 0.0001f)
 		{
 			SceneManager.LoadScene("Crash");
 			return;

@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114389034572830768}
   - component: {fileID: 114669023751811402}
   m_Layer: 0
-  m_Name: ParticlePlayer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
