@@ -9,9 +9,15 @@ using System.Collections.Generic;
 public class ShaderScript : MonoBehaviour
 {
 	public Material Material;
+	public static ShaderScript Instance;
 
 	public float RasterSpeed = 10;
 	float v = 0;
+
+	private void Awake()
+	{
+		Instance = this;
+	}
 
 	private void Update()
 	{

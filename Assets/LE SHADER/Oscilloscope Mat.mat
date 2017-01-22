@@ -105,7 +105,7 @@ Material:
       second: 0.02
     - first:
         name: _Raster
-      second: 0.65950346
+      second: 0.9395474
     - first:
         name: _SmoothnessTextureChannel
       second: 0

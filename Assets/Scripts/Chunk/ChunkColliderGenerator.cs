@@ -11,11 +11,10 @@ public class ChunkColliderGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		var Material = LevelManager.Instance.GetComponent<ShaderScript>().Material;
-		//TODO USE ME !!!! 
-
 		myRenderer = GetComponent<LineRenderer>();
 		polyCol = gameObject.AddComponent<PolygonCollider2D>();
+
+		myRenderer.material = ShaderScript.Instance.Material;
 
 		Vector2[] paths = new Vector2[myRenderer.numPositions - 1];
 		// the line renderer needs a final vertex to close itself, not the poly collider - hence, the -1
