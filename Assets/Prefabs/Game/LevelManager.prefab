@@ -405,7 +405,7 @@ MonoBehaviour:
   Frequency: 2
   Amplitude: 0.375
   Offset: 0
-  Speed: 0.73
+  Speed: 0.85
   Definition: 500
   Line: {fileID: 120944829258576980}
 --- !u!114 &114733267625911324

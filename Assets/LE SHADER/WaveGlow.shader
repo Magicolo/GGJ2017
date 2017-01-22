@@ -56,7 +56,7 @@ Shader "Robart/Wave" {
 		float x = (1 - abs(i.scrPos.x - _PlayerX) * 5) *0.2;
 		//x = 0;
 		float thing = x - _Length * 0.2 ;
-		float y = (i.scrPos.y - 0.5) * 5;
+		float y = (i.scrPos.y - 0.5) * 200;
 		float otherY = (1 - (i.scrPos.y - 0.5)) * 0.5f;
 		//if (i.scrPos.y > 0.5)
 //			y *= -1;
