@@ -31,6 +31,7 @@ public class ParticlePlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		transform.Rotate(0f, 0f, Time.fixedDeltaTime * -500f * LevelManager.Instance.Speed);
 		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")), Time.fixedDeltaTime);
 	}
 
