@@ -1,17 +1,22 @@
-﻿// Unlit shader. Simplest possible colored shader.
+﻿// Unlit shader. Simplest possible textured shader.
 // - no lighting
 // - no lightmap support
-// - no texture
+// - no per-material color
 
-Shader "Robart/Wave" {
+Shader "Robart/Menu" {
 	Properties{
-		_PlayerX("Player X", Range(0,1)) = 0.05 // sliders
+		_MainTex("Base (RGBA)", 2D) = "white" {}
+		_MouseX("Mouse X", Range(0,1)) = 0.05 // sliders
 		_Length("Length", Range(0,1)) = 0.05 // sliders
 	}
 
 		SubShader{
-		Tags{ "RenderType" = "Opaque" }
+			Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		LOD 100
+
+			ZWrite Off
+			Blend SrcAlpha OneMinusSrcAlpha
+
 
 		Pass{
 		CGPROGRAM
@@ -24,18 +29,22 @@ Shader "Robart/Wave" {
 
 		struct appdata_t {
 		float4 vertex : POSITION;
-		float4 scrPos : TEXCOORD1;
+		float2 texcoord : TEXCOORD0;
 		UNITY_VERTEX_INPUT_INSTANCE_ID
 	};
 
 	struct v2f {
 		float4 vertex : SV_POSITION;
+		float2 texcoord : TEXCOORD0;
 		float4 scrPos : TEXCOORD1;
-		UNITY_FOG_COORDS(0)
+		UNITY_FOG_COORDS(1)
 			UNITY_VERTEX_OUTPUT_STEREO
 	};
 
-	float _PlayerX;
+	sampler2D _MainTex;
+
+	float4 _MainTex_ST;
+	float _MouseX;
 	float _Length;
 
 	v2f vert(appdata_t v)
@@ -44,18 +53,20 @@ Shader "Robart/Wave" {
 		UNITY_SETUP_INSTANCE_ID(v);
 		UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 		o.vertex = UnityObjectToClipPos(v.vertex);
+		o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 		o.scrPos = ComputeScreenPos(o.vertex);
 		UNITY_TRANSFER_FOG(o,o.vertex);
 		return o;
 	}
 
-	fixed4 frag(v2f i) : COLOR
+	fixed4 frag(v2f i) : SV_Target
 	{
-		float x = 1 - abs(i.scrPos.x - _PlayerX) * 10;
-		float thing = _Length + x;
-		fixed4 col = float4(0.6 + thing, 0.5 + thing, 0.1 + thing, 1);
+		fixed4 col = tex2D(_MainTex, i.texcoord);
+
+		float x = _Length + 1 - abs(i.scrPos.x - _MouseX) * 10;
+		col *= x;
 		UNITY_APPLY_FOG(i.fogCoord, col);
-		UNITY_OPAQUE_ALPHA(col.a);
+		//UNITY_OPAQUE_ALPHA(col.a);
 		return col;
 	}
 		ENDCG

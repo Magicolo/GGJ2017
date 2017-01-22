@@ -3,9 +3,10 @@
 // - no lightmap support
 // - no texture
 
-Shader "Oscilloscope" {
+Shader "Robart/Oscilloscope" {
 	Properties{
 		_Color("Main Color", Color) = (1,1,1,1)
+		_PlayerP("Player Position", Vector) = (1,1,1,1)
 		_Raster("Raster Line", Range(0,1)) = 0.05 // sliders
 	}
 
@@ -35,7 +36,7 @@ Shader "Oscilloscope" {
 		UNITY_VERTEX_OUTPUT_STEREO
 	};
 
-	fixed4 _Color;
+	float4  _PlayerP;
 	float _Raster;
 
 	v2f vert(appdata_t v)
@@ -51,10 +52,19 @@ Shader "Oscilloscope" {
 
 	fixed4 frag(v2f i) : COLOR
 	{
+		float pd = 2 - (abs(i.scrPos - _PlayerP)).x*5;
+		if (pd <= 0) pd = 0;
+
 		float x = 1 - abs(i.scrPos.x - _Raster) * 20;
-		fixed4 col = float4(0.2 + x * 0.5, 1 - x * 0.5, 0.2 + x * 0.5, 1);
-		UNITY_APPLY_FOG(i.fogCoord, col);
-		UNITY_OPAQUE_ALPHA(col.a);
+		if (x <= 0) x = 0;
+	
+		fixed4 col = float4(
+			//pd,0,0,
+			0.2 + x + pd * 0.3, 
+			0.5 + x + pd, 
+			0.2 + x + pd * 0.3, 
+			1);
+
 		return col;
 	}
 		ENDCG
