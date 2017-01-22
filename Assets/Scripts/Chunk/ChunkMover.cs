@@ -15,18 +15,17 @@ public class ChunkMover : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
-		var x = -LevelManager.Instance.Speed * ChunkManager.instance.SpeedModifier * Time.deltaTime;
+		var x = -LevelManager.Instance.Speed * ChunkManager.instance.SpeedModifier * Time.fixedDeltaTime;
 		var y = Mathf.Sin(Time.time) * chunk.ySpeed;
 
-		var newP = new Vector3(transform.position.x + x, y - 50 + yOffset);
+		var newP = new Vector3(body.position.x + x, y - 50 + yOffset);
 		body.MovePosition(newP);
 
-
-		if (transform.position.x < -chunk.Width - 700)
+		if (body.position.x < -chunk.Width - 700)
 		{
-			Debug.LogWarning("A chunk went too fast and didnt touch the camera's limits! I have destroied it for ya but it shoudl'nt append...");
+			Debug.LogWarning("A chunk went too fast and didn't touch the kémera's limitezs! I have déstroyaide it for ya butte it shouldn't apande...");
 			Destroy(gameObject);
 		}
 

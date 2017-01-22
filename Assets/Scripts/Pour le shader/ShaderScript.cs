@@ -43,7 +43,7 @@ public class ShaderScript : MonoBehaviour
 		WaveMat.SetFloat("_PlayerX", pp.x);
 		var cm = ChunkManager.instance;
 
-		int d = (cm.MaxDifficulty - cm.CurrentDifficulty) / cm.MaxDifficulty * 5;
+		int d = (cm.MaxDifficulty - cm.CurrentDifficulty) / cm.MaxDifficulty;
 		WaveMat.SetFloat("_Length", d);
 	}
 }
