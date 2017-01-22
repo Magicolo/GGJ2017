@@ -219,7 +219,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 400, y: 0}
+  m_Offset: {x: 50, y: 0}
   serializedVersion: 2
   m_Size: {x: 100, y: 2500}
 --- !u!61 &61641580521387610
@@ -442,7 +442,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fbcb556a6e27494e8f92f3ac2d2a783, type: 2}
+  - {fileID: 2100000, guid: f85132a5405d1c142999a997ec868ba2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

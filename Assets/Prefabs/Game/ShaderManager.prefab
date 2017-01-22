@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4136748eeb6c974b96ae66f96b87c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
-  LineMaterial: {fileID: 2100000, guid: 5fbcb556a6e27494e8f92f3ac2d2a783, type: 2}
+  ObstacleMat: {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
+  WaveMat: {fileID: 2100000, guid: f85132a5405d1c142999a997ec868ba2, type: 2}
   RasterSpeed: 2
