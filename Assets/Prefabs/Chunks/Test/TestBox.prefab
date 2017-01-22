@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f42e752a1a7314aa2a080271a6f408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Difficulty: 3
   Width: 100
-  GizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  IsHard: 0
+  CanFlipInY: 1
   ySpeed: 5
 --- !u!120 &120702185396202914
 LineRenderer:
@@ -110,7 +110,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1e95e0e85b3bea342bec04fcdbe88176, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
