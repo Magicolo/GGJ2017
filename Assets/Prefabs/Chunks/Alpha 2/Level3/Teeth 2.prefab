@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Width: 199
-  IsHard: 0
+  IsHard: 1
   CanFlipInY: 1
   ySpeed: 0
 --- !u!114 &114815794371180392
