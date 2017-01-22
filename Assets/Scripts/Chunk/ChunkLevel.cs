@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class ChunkLevel : MonoBehaviour
 {
 	public ChunkInfo[] Level;
+	public int Difficulty;
 }
 
 [Serializable]
