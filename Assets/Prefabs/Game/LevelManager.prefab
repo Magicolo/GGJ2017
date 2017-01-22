@@ -347,13 +347,11 @@ MonoBehaviour:
     y: 0.09
     width: 0.916
     height: 0.75
-  Speed: 1
+  TimeSpeed: 1
+  FlickerIntensity: 1
   MainCamera: {fileID: 20241215971554942}
   UICamera: {fileID: 0}
   Wave: {fileID: 114704641059727588}
-  BackgroundLightFactor: 0.35
-  BackgroundLightFactorRandom: 0.3
-  BackgroundMaxLight: 0.1
 --- !u!114 &114275697925745408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b356405cc6638d9449d815163bd6b07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shape: 0
+  Shape: 1
   Frequency: 2
   Amplitude: 0.375
   Offset: 0

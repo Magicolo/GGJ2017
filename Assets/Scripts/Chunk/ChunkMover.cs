@@ -17,7 +17,7 @@ public class ChunkMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var x = -LevelManager.Instance.Difficulty * ChunkManager.instance.SpeedModifier * Time.deltaTime;
+		var x = -LevelManager.Instance.Speed * ChunkManager.instance.SpeedModifier * Time.deltaTime;
 		var y = Mathf.Sin(Time.time) * chunk.ySpeed;
 
 		var newP = new Vector3(transform.position.x + x, y - 50 + yOffset);
