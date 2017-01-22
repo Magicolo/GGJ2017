@@ -17,6 +17,7 @@ public class ParticlePlayer : MonoBehaviour
 	public Transform TunnelRight;
 	public ParticleSystem TunnelStartEffect;
 	public ParticleSystem TunnelEndEffect;
+	public AudioSource MotorSound;
 
 	public float CooldownRatio
 	{
@@ -27,12 +28,14 @@ public class ParticlePlayer : MonoBehaviour
 		get { return tunnelCounter <= 0f; }
 	}
 
+	Vector3 velocity;
 	float tunnelCounter;
 
 	void FixedUpdate()
 	{
 		transform.Rotate(0f, 0f, Time.fixedDeltaTime * -500f * LevelManager.Instance.Speed);
 		UpdateInput(new Vector2(Input.GetAxisRaw("Horizontal1"), Input.GetAxisRaw("Vertical1")), Time.fixedDeltaTime);
+		UpdateAudio();
 	}
 
 	void UpdateInput(Vector2 input, float deltaTime)
@@ -51,7 +54,9 @@ public class ParticlePlayer : MonoBehaviour
 		position.x = Mathf.Clamp(position.x, LevelManager.Instance.Bounds.xMin, LevelManager.Instance.Bounds.xMax);
 		position.y = wave.Solve(position.x);
 		position.z = -LevelManager.Instance.MainCamera.transform.position.z;
-		Body.MovePosition(LevelManager.Instance.MainCamera.ViewportToWorldPoint(position));
+		var target = LevelManager.Instance.MainCamera.ViewportToWorldPoint(position);
+		velocity = target - (Vector3)Body.position;
+		Body.MovePosition(target);
 
 		UpdateTunnel(input, deltaTime);
 	}
@@ -88,6 +93,11 @@ public class ParticlePlayer : MonoBehaviour
 
 		TunnelLeft.gameObject.SetActive(CanTunnel);
 		TunnelRight.gameObject.SetActive(CanTunnel);
+	}
+
+	void UpdateAudio()
+	{
+		MotorSound.pitch = Mathf.Lerp(MotorSound.pitch, Mathf.Pow(velocity.magnitude, 0.5f), Time.deltaTime);
 	}
 
 	void OnTriggerEnter2D()

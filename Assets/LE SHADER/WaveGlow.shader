@@ -51,8 +51,8 @@ Shader "Robart/Wave" {
 
 	fixed4 frag(v2f i) : COLOR
 	{
-		float x = 1 - abs(i.scrPos.x - _PlayerX) * 10;
-		float thing = _Length + x;
+		float x = 1 - abs(i.scrPos.x - _PlayerX) * 5;
+		float thing = _Length * 2 + x ;
 		fixed4 col = float4(0.6 + thing, 0.5 + thing, 0.1 + thing, 1);
 		UNITY_APPLY_FOG(i.fogCoord, col);
 		UNITY_OPAQUE_ALPHA(col.a);
