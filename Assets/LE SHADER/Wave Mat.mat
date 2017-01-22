@@ -72,7 +72,7 @@ Material:
     m_Floats:
     - first:
         name: _Ampli
-      second: -0.21000001
+      second: 0.375
     - first:
         name: _BumpScale
       second: 1
@@ -111,7 +111,7 @@ Material:
       second: 0.02
     - first:
         name: _PlayerX
-      second: 0.31920224
+      second: 0.20646727
     - first:
         name: _SmoothnessTextureChannel
       second: 0
