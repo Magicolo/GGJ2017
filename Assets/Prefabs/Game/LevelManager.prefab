@@ -347,7 +347,7 @@ MonoBehaviour:
     y: 0.09
     width: 0.916
     height: 0.75
-  TimeSpeed: 1
+  TimeSpeed: 0.8
   FlickerIntensity: 1
   MainCamera: {fileID: 20241215971554942}
   UICamera: {fileID: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   Frequency: 2
   Amplitude: 0.375
   Offset: 0
-  Speed: 1
+  Speed: 0.73
   Definition: 500
   Line: {fileID: 120944829258576980}
 --- !u!114 &114733267625911324
